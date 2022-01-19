@@ -1,0 +1,78 @@
+﻿<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:windows="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;assembly=Microsoft.Maui.Controls"
+             xmlns:local="clr-namespace:BenzoApp"
+             xmlns:page="clr-namespace:BenzoApp"
+             x:Class="BenzoApp.App"
+             windows:Application.ImageDirectory="Assets">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <Color x:Key="PrimaryColor">#512bdf</Color>
+            <Color x:Key="SecondaryColor">White</Color>
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
+                <Setter Property="FontFamily" Value="OpenSansRegular" />
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="{DynamicResource SecondaryColor}" />
+                <Setter Property="FontFamily" Value="OpenSansRegular" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}" />
+                <Setter Property="Padding" Value="14,10" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+
+    <Application.MainPage>
+        <Shell 
+            FlyoutWidth="68"
+            FlyoutBackgroundColor="{StaticResource Background_Mid}"
+            FlyoutBehavior="{OnIdiom Phone=Disabled, Default=Locked}">
+
+
+            <Shell.FlyoutFooterTemplate>
+                <DataTemplate>
+                    <GridLayout RowDefinitions="68">
+                        <GridLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </GridLayout.GestureRecognizers>
+                        <Image Source="tab_settings.png"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               WidthRequest="40"
+                               HeightRequest="40"
+                        />
+
+                    </GridLayout>
+                </DataTemplate>
+
+            </Shell.FlyoutFooterTemplate>
+
+            <TabBar x:Name="PhoneTabs">
+                <Tab Title="Home" Icon="tab_home.png">
+                    <ShellContent ContentTemplate="{DataTemplate page:HomePage}"/>
+                </Tab>
+                <Tab Title="Settings" Icon="tab_settings.png">
+                    <ShellContent ContentTemplate="{DataTemplate page:SettingsPage}"/>
+                </Tab>
+            </TabBar>
+
+            <Shell.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                        RowDefinitions="68" HeightRequest="68">
+                        <Image Source="{Binding FlyoutIcon}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               />
+                    </Grid>
+                </DataTemplate>
+
+            </Shell.ItemTemplate>
+        </Shell>
+        
+    </Application.MainPage>
+</Application>

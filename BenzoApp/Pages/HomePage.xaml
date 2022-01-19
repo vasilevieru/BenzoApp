@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:m="clr-namespace:BenzoApp.Models"
+             xmlns:view="clr-namespace:BenzoApp.Views"
+             xmlns:viewModel="clr-namespace:BenzoApp.ViewModels"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="True"
+             x:Class="BenzoApp.Pages.HomePage"
+             Title="HomePage"
+             BackgroundColor="White">
+    <ContentPage.BindingContext>
+        <viewModel:HomeViewModel />
+    </ContentPage.BindingContext>
+    <GridLayout
+        ColumnDefinitions="{OnIdiom Phone='*', Default='*,500'}"
+        RowDefinitions="*">
+
+        <!-- Main content -->
+        <ScrollView GridLayout.Column="0">
+            <ListView x:Name="listFuelStations" ItemsSource="{Binding FuelStations}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <view:FuelStationControl />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+
+    </GridLayout>
+</ContentPage>
