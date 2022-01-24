@@ -50,6 +50,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\avante_logo.png" />
+	  <None Remove="Resources\Images\bemol_logo.png" />
+	  <None Remove="Resources\Images\fox_logo.png" />
+	  <None Remove="Resources\Images\lukoil_logo.png" />
+	  <None Remove="Resources\Images\now_logo.png" />
+	  <None Remove="Resources\Images\petrom_logo.png" />
+	  <None Remove="Resources\Images\rompetrol_logo.png" />
+	  <None Remove="Resources\Images\tirex_logo.png" />
+	  <None Remove="Resources\Images\vento_logo.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <PackageReference Include="AutoMapper" Version="11.0.0" />
 	  <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
 	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.1" />
